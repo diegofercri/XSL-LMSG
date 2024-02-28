@@ -1,0 +1,8 @@
+.bg-black-50 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+main .card-img {
+    width: auto;
+    height: 20px;
+}
