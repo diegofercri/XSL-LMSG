@@ -2,7 +2,12 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-types .card-img {
+#types .card-img {
     width: auto;
     height: 20px;
+}
+
+#pokemons .card-img {
+    width: auto;
+    height: 185px;
 }
