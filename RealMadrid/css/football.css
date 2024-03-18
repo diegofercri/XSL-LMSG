@@ -1,0 +1,103 @@
+
+
+.w-12 {
+    width: 12.5%;
+}
+
+.inner {
+    border: 4px solid #fff;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.middle-line {
+    position: absolute;
+    left: calc(50% - 2px);
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
+    top: 0;
+}
+
+.middle-circle {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+}
+
+.goal {
+    height: 176px;
+    width: 50px;
+    position: absolute;
+    top: calc(50% - 88px);
+    border: 4px solid #fff;
+}
+
+.goal.is-right {
+    right: 0;
+    border-right: 0px;
+}
+
+.goal.is-left {
+    left: 0;
+    border-left: 0px;
+}
+
+.penalty {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #fff;
+    top: calc(50% - 4px);
+}
+
+.goal.is-right>.penalty {
+    left: -40px;
+}
+
+.goal.is-left>.penalty {
+    right: -40px;
+}
+
+.bow {
+    width: 146px;
+    height: 146px;
+    border: 4px solid #fff;
+    position: absolute;
+    border-radius: 56%;
+    top: calc(50% - 73px);
+}
+
+.bow.is-left {
+    left: O;
+}
+
+.bow.is-right {
+    right: 0;
+}
+
+.penalty-area {
+    position: absolute;
+    height: 260px;
+    width: 122px;
+    top: calc(50% - 130px);
+    border: 4px solid #fff;
+}
+
+.penalty-area.is-right {
+    right: 0;
+    border-right: 0;
+    background-color: var(--c2);
+}
+
+.penalty-area.is-left {
+    left: 0;
+    border-left: 0;
+    background-color: var(--c1);
+}
