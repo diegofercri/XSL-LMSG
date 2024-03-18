@@ -1,6 +1,12 @@
 :root {
     --c1: #048600;
     --c2: #059e00;
+    --c3: #8feb25ee;
+    --c4: #ddcb05;
+    --cw: #fff;
+    --cw-t: #ffffffee;
+    --cb: #151515;
+    --cb-t: #151515ee;
 }
 
 .bg-c1 {
