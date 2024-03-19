@@ -16,3 +16,11 @@
 .bg-c2 {
     background-color: var(--c2);
 }
+
+.bg-white-50 {
+    background-color: #ffffff80;
+}
+
+.bg-dark-50 {
+    background-color: #15151580;
+}

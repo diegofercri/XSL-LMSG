@@ -1,17 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:array="http://www.w3.org/2005/xpath-functions/array"
-                xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-                xmlns:math="http://www.w3.org/2005/xpath-functions/math"
-                exclude-result-prefixes="#all"
-                expand-text="yes"
-                version="3.0">
-    
-    <xsl:output method="xml" indent="yes"/>
-    <xsl:mode on-no-match="shallow-copy"/>
-    
-    <xsl:template match="/*" mode="#all">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xsl:stylesheet  [
+<!ENTITY nbsp   "&#160;">
+<!ENTITY copy   "&#169;">
+<!ENTITY reg    "&#174;">
+<!ENTITY trade  "&#8482;">
+<!ENTITY mdash  "&#8212;">
+<!ENTITY ldquo  "&#8220;">
+<!ENTITY rdquo  "&#8221;"> 
+<!ENTITY pound  "&#163;">
+<!ENTITY yen    "&#165;">
+<!ENTITY euro   "&#8364;">
+]>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="html" encoding="utf-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+    <xsl:template match="/">
         <html lang="es">
             
             <head>
@@ -102,78 +104,86 @@
                                 <div id="portero" class="w-25 h-100 d-flex align-items-center justify-content-start px-3">
                                     <div class="playerCard d-flex flex-column align-items-center justify-content-center">
                                         <div class="player d-flex align-items-center justify-content-center">
-                                            <a class="m-0 p-0 display-6 text-decoration-none fw-bold">1</a>
+                                            <a class="m-0 p-0 display-6 text-decoration-none fw-bold"><xsl:value-of select="realmadrid/eleven/gk/person/number"/></a>
                                         </div>
                                         <div class="playerName">
-                                            <a>Courtois</a>
+                                            <a><xsl:value-of select="realmadrid/eleven/gk/person/name"/></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div id="defensas" class="w-25 h-100 d-flex flex-column align-items-start justify-content-around">
-                                    
+                                    <xsl:for-each select="realmadrid/eleven/df/person">
+                                        <div class="playerCard d-flex flex-column align-items-center justify-content-center">
+                                            <div class="player d-flex align-items-center justify-content-center">
+                                                <a class="m-0 p-0 display-6 text-decoration-none fw-bold"><xsl:value-of select="number"/></a>
+                                            </div>
+                                            <div class="playerName">
+                                                <a><xsl:value-of select="name"/></a>
+                                            </div>
+                                        </div>
+                                    </xsl:for-each>
                                 </div>
-                                <div id="mediocentros"
-                                     class="w-25 h-100 d-flex flex-column align-items-start justify-content-around">
-                                    
+                                <div id="mediocentros" class="w-25 h-100 d-flex flex-column align-items-start justify-content-around">
+                                    <xsl:for-each select="realmadrid/eleven/md/person">
+                                        <div class="playerCard d-flex flex-column align-items-center justify-content-center">
+                                            <div class="player d-flex align-items-center justify-content-center">
+                                                <a class="m-0 p-0 display-6 text-decoration-none fw-bold"><xsl:value-of select="number"/></a>
+                                            </div>
+                                            <div class="playerName">
+                                                <a><xsl:value-of select="name"/></a>
+                                            </div>
+                                        </div>
+                                    </xsl:for-each>
                                 </div>
                                 <div id="delanteros" class="w-25 h-100 d-flex flex-column align-items-start justify-content-around">
-                                    
+                                    <xsl:for-each select="realmadrid/eleven/at/person">
+                                        <div class="playerCard d-flex flex-column align-items-center justify-content-center">
+                                            <div class="player d-flex align-items-center justify-content-center">
+                                                <a class="m-0 p-0 display-6 text-decoration-none fw-bold"><xsl:value-of select="number"/></a>
+                                            </div>
+                                            <div class="playerName">
+                                                <a><xsl:value-of select="name"/></a>
+                                            </div>
+                                        </div>
+                                    </xsl:for-each>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="container mt-5">
+                    <section class="mt-5">
                         <h1 class="text-center text-dark">Cuerpo Técnico</h1>
-                        <div class="mt-3">
-                            <div class="card bg-dark text-white" style="height: 300px; width: 250px;">
-                                <img class="card-img" src="img/logo.png" alt="Title"/>
-                                <div class="card-img-overlay d-flex align-items-end">
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <h4 class="card-title p-0 m-0">Courtois</h4>
-                                            <p class="card-text p-0 m-0">Portero</p>
+                        <div class="mt-3 d-flex flex-wrap gap-5 justify-content-center">
+                            <xsl:for-each select="realmadrid/coaches/person">
+                                <div class="card text-white border-0" style="height: auto; width: 250px;">
+                                    <img class="card-img" src="{img}" alt="{name}"/>
+                                    <div class="card-img-overlay d-flex align-items-end">
+                                        <div class="d-flex align-items-center">
+                                            <div class="px-2 py-1 bg-dark-50 rounded-2">
+                                                <h4 class="card-title p-0 m-0"><xsl:value-of select="name"/></h4>
+                                                <p class="card-text p-0 m-0"><xsl:value-of select="position"/></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </xsl:for-each>
                         </div>
                     </section>
-                    <section class="container mt-5">
+                    <section class="mt-5">
                         <h1 class="text-center text-dark">Banquillo</h1>
-                        <div class="mt-3">
-                            <div class="card bg-dark text-white" style="height: 300px; width: 250px;">
-                                <img class="card-img" src="img/logo.png" alt="Title"/>
-                                <div class="card-img-overlay d-flex align-items-end">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div>
-                                            <h5 class="display-3 fw-bold p-0 m-0">1</h5>
-                                        </div>
-                                        <div>
-                                            <h4 class="card-title p-0 m-0 pt-2">Courtois</h4>
-                                            <p class="card-text p-0 m-0 pt-1">Portero</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="container mt-5">
-                        <h1 class="text-center text-dark">Reservas</h1>
-                        <div class="mt-3">
-                            <div class="card bg-dark text-white" style="height: 300px; width: 250px;">
-                                <img class="card-img" src="img/logo.png" alt="Title"/>
-                                <div class="card-img-overlay d-flex align-items-end">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div>
-                                            <h5 class="display-3 fw-bold p-0 m-0">1</h5>
-                                        </div>
-                                        <div>
-                                            <h4 class="card-title p-0 m-0 pt-2">Courtois</h4>
-                                            <p class="card-text p-0 m-0 pt-1">Portero</p>
+                        <div class="my-3 d-flex flex-wrap gap-5 justify-content-center">
+                            <xsl:for-each select="realmadrid/bench/person">
+                                <div class="card text-white border-0" style="height: auto; width: 250px;">
+                                    <img class="card-img" src="{img}" alt="{name}"/>
+                                    <div class="card-img-overlay d-flex align-items-end">
+                                        <div class="d-flex align-items-center">
+                                            <div class="px-2 py-1 bg-dark-50 rounded-2">
+                                                <h4 class="card-title p-0 m-0"><xsl:value-of select="name"/></h4>
+                                                <p class="card-text p-0 m-0"><xsl:value-of select="position"/></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </xsl:for-each>
                         </div>
                     </section>
                 </main>
@@ -192,7 +202,4 @@
             
         </html>
     </xsl:template>
-    
-    
-    
 </xsl:stylesheet>
