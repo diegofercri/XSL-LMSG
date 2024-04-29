@@ -51,10 +51,6 @@
 							<div class="row">
 								<xsl:for-each select="kingsleague/equipo">
 									<div class="col-3 col-md-2 col-lg-1 p-2">
-										<button onclick="hideall('{@abr}')" class="team-button">
-											<img src="{escudo}" alt="{@nombre}" />
-											<h4><xsl:value-of select="@abr"/></h4>
-										</button>
 										<div class="card" style="border-radius: 70px; {gradiente}">
 											<a href="#{@abr}" class="text-decoration-none text-center p-2">
 												<img class="card-img-top mt-2" src="{escudo}" alt="{@nombre}" />
