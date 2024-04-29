@@ -1,0 +1,11 @@
+:root {
+    --c1: #006bb4;
+}
+
+.text-c1 {
+    color: var(--c1);
+}
+
+.bg-c1 {
+    background-color: var(--c1);
+}
